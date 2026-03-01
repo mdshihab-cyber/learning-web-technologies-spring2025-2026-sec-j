@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Validation</title>
+    <script>
+        function validateEmail() {
+            let email = document.getElementById("email").value.trim();
+
+            if (email === "") {
+                alert("Email cannot be empty.");
+                return false;
+            }
+
+            let atSymbolIndex = email.indexOf("@");
+            let dotSymbolIndex = email.lastIndexOf(".");
+
+            if (atSymbolIndex === -1 || dotSymbolIndex === -1 || dotSymbolIndex < atSymbolIndex) {
+                alert("Must be a valid email address (i.e anything@example.com).");
+                return false;
+            }
+            
+            alert("Email validation successful!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <form onsubmit="return validateEmail()">
+        <label for="email">Email</label><br>
+        
+        <input type="text" id="email"> 
+        <span style="cursor: help; color: blue; border: 1px solid blue; padding: 0 4px;" title="hint: sample@example.com">i</span><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
