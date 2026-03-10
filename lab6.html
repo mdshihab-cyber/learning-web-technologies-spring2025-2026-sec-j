@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tic Tac Toe</title>
+
+<style>
+
+body{
+    text-align:center;
+    font-family:Arial;
+}
+
+#board{
+    width:315px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:100px 100px 100px;
+    gap:5px;
+}
+
+.cell{
+    border:2px solid black;
+    height:100px;
+    font-size:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+}
+
+#status{
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+#score{
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+button{
+    margin-top:15px;
+    padding:8px 15px;
+    font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Tic Tac Toe</h2>
+
+<div id="score">
+X Score: <span id="xScore">0</span>
+&nbsp;&nbsp;
+O Score: <span id="oScore">0</span>
+</div>
+
+<div id="status">
+Current Player: X
+</div>
+
+<div id="board">
+
+<div class="cell"></div>
+<div class="cell"></div>
+<div class="cell"></div>
+
+<div class="cell"></div>
+<div class="cell"></div>
+<div class="cell"></div>
+
+<div class="cell"></div>
+<div class="cell"></div>
+<div class="cell"></div>
+
+</div>
+
+<button id="reset">Reset Game</button>
+
+</body>
+</html>
