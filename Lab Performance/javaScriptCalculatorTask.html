@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>  
+        <title>Calculator</title>
+    </head>
+        <body>
+            <h2 style="text-align: center;">Calculator</h2>
+            <div id="calc"></div>
+
+            <script>
+                let div = document.getElementById("calc"); 
+                div.style.border = "1px solid black";
+                div.style.width = "110px";
+                div.style.padding = "4px";
+                div.style.margin = "0 auto";
+                div.style.textAlign = "center";
+
+                let input = document.createElement("input");
+                input.type = "text";
+                input.id = "screen";
+                input.style.width = "100px";
+                div.appendChild(input); 
+     
+                let keys = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', 'c', '0', '=', '+'];
+                for (let i = 0; i < keys.length; i++) {
+                    let button = document.createElement("button"); 
+                    button.innerText = keys[i]; 
+                    button.onclick = function() {
+                        let screen = document.getElementById("screen");
+                        if (keys[i] === 'C') {
+                            screen.value = "";
+                        } else if (keys[i] === '=') {
+                            screen.value = eval(screen.value);
+                        } else {
+                            screen.value += keys[i];
+                        }
+
+                    };
+                    div.appendChild(button);
+                    if ((i + 1) % 4 === 0) {
+                        let br = document.createElement("br");
+                        div.appendChild(br);
+                    }   
+                }
+            </script>
+        </body>
+</html>

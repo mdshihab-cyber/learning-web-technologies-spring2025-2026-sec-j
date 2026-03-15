@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+
+    <h2>Calculator</h2>
+    <div id="calc"></div>
+
+    <script>
+        let div = document.getElementById("calc");
+        div.style.border = "1px solid black";
+        div.style.width = "120px";
+        div.style.padding = "5px";
+
+        let input = document.createElement("input");
+        input.type = "text";
+        input.id = "screen";
+        input.style.width = "100px";
+        div.appendChild(input);
+        
+        let br1 = document.createElement("br");
+        div.appendChild(br1);
+        let br2 = document.createElement("br");
+        div.appendChild(br2);
+
+        let keys = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', 'C', '0', '=', '+'];
+
+        for (let i = 0; i < keys.length; i++) {
+            let btn = document.createElement("button");
+            btn.innerHTML = keys[i];
+            
+            btn.onclick = function() {
+                let screen = document.getElementById("screen");
+                if (keys[i] === 'C') {
+                    screen.value = "";
+                } else if (keys[i] === '=') {
+                    screen.value = eval(screen.value);
+                } else {
+                    screen.value += keys[i];
+                }
+            };
+
+            div.appendChild(btn);
+
+            if ((i + 1) % 4 === 0) {
+                let br = document.createElement("br");
+                div.appendChild(br);
+            }
+        }
+    </script>
+
+</body>
+</html>
